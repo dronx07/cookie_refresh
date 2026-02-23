@@ -1,46 +1,31 @@
-import asyncio
 import json
-from playwright.async_api import async_playwright
+from seleniumbase import SB
 
 
 AMAZON_URL = "https://sellercentral-europe.amazon.com/"
 ROCKET_URL = "https://www.rocketsource.io/ean-to-asin"
 
 
-async def get_cookie_string(context):
-    cookies = await context.cookies()
-    return "; ".join(
-        f"{cookie['name']}={cookie['value']}"
-        for cookie in cookies
-        if cookie.get("name") and cookie.get("value")
-    )
+def get_cookie_string(sb):
+    cookies = sb.driver.get_cookie_string()
+    return cookies
 
 
-async def fetch_site_cookies():
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(
-            headless=True,
-            args=["--disable-blink-features=AutomationControlled"]
-        )
+def fetch_cookies():
+    with SB(headless=False, uc=True) as sb:
+        sb.open(AMAZON_URL)
+        sb.sleep(10)
+        amazon_cookie = get_cookie_string(sb)
 
-        context = await browser.new_context()
-        page = await context.new_page()
-
-        # Amazon
-        await page.goto(AMAZON_URL, wait_until="load")
-        amazon_cookie = await get_cookie_string(context)
-
-        # RocketSource
-        await page.goto(ROCKET_URL, wait_until="load")
-        rocket_cookie = await get_cookie_string(context)
-
-        await browser.close()
+        sb.open(ROCKET_URL)
+        sb.sleep(10)
+        rocket_cookie = get_cookie_string(sb)
 
         return amazon_cookie, rocket_cookie
 
 
-async def main():
-    amazon_cookie, rocket_cookie = await fetch_site_cookies()
+def main():
+    amazon_cookie, rocket_cookie = fetch_cookies()
 
     data = {
         "qogita": {
@@ -58,4 +43,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
