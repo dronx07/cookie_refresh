@@ -12,7 +12,7 @@ def get_cookie_string(sb):
 
 
 def fetch_cookies_q():
-    with SB(headless=False, uc=True) as sb:
+    with SB(headless=True, uc=True) as sb:
         sb.open(AMAZON_URL)
         sb.sleep(10)
         amazon_cookie = get_cookie_string(sb)
@@ -25,7 +25,7 @@ def fetch_cookies_q():
 
 
 def fetch_cookies_e():
-    with SB(headless=False, uc=True) as sb:
+    with SB(headless=True, uc=True) as sb:
         sb.open(AMAZON_URL)
         sb.sleep(10)
         amazon_cookie = get_cookie_string(sb)
