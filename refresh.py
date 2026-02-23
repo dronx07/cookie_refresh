@@ -11,7 +11,20 @@ def get_cookie_string(sb):
     return cookies
 
 
-def fetch_cookies():
+def fetch_cookies_q():
+    with SB(headless=False, uc=True) as sb:
+        sb.open(AMAZON_URL)
+        sb.sleep(10)
+        amazon_cookie = get_cookie_string(sb)
+
+        sb.open(ROCKET_URL)
+        sb.sleep(10)
+        rocket_cookie = get_cookie_string(sb)
+
+        return amazon_cookie, rocket_cookie
+
+
+def fetch_cookies_e():
     with SB(headless=False, uc=True) as sb:
         sb.open(AMAZON_URL)
         sb.sleep(10)
@@ -25,16 +38,17 @@ def fetch_cookies():
 
 
 def main():
-    amazon_cookie, rocket_cookie = fetch_cookies()
+    q_amazon_cookie, q_rocket_cookie = fetch_cookies_q()
+    e_amazon_cookie, e_rocket_cookie = fetch_cookies_e()
 
     data = {
         "qogita": {
-            "amazon_cookie": amazon_cookie,
-            "rocket_source_cookie": rocket_cookie
+            "amazon_cookie": q_amazon_cookie,
+            "rocket_source_cookie": q_rocket_cookie
         },
         "eany": {
-            "amazon_cookie": amazon_cookie,
-            "rocket_source_cookie": rocket_cookie
+            "amazon_cookie": e_amazon_cookie,
+            "rocket_source_cookie": e_rocket_cookie
         }
     }
 
