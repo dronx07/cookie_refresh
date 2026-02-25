@@ -1,51 +1,56 @@
+2.py
+
 import json
-import os
-from dotenv import load_dotenv
 from seleniumbase import SB
 
-load_dotenv()
 
-e = os.getenv("EMAIL")
-p = os.getenv("PASSWORD")
-
-
-SELLERAMP_URL = "https://sas.selleramp.com/site/login"
 AMAZON_URL = "https://sellercentral-europe.amazon.com/"
-
-def login_selleramp_and_get_cookies(sb, email, password):
-    sb.open(SELLERAMP_URL)
-    sb.type("input[id='loginform-email']", email)
-    sb.type("input[id='loginform-password']", password)
-    sb.click("button[type='submit']")
-    sb.sleep(15)
-    return sb.driver.get_cookie_string()
+ROCKET_URL = "https://www.rocketsource.io/ean-to-asin"
 
 
-def open_amazon_and_get_cookies(sb):
-    sb.open(AMAZON_URL)
-    sb.sleep(15)
-    return sb.driver.get_cookie_string()
+def get_cookie_string(sb):
+    cookies = sb.driver.get_cookie_string()
+    return cookies
 
 
-def fetch_all_cookies(email, password):
+def fetch_cookies_q():
     with SB(headless=True, uc=True) as sb:
-        selleramp_cookie = login_selleramp_and_get_cookies(sb, email, password)
-        amazon_cookie = open_amazon_and_get_cookies(sb)
-        return selleramp_cookie, amazon_cookie
+        sb.open(AMAZON_URL)
+        sb.sleep(10)
+        amazon_cookie = get_cookie_string(sb)
+
+        sb.open(ROCKET_URL)
+        sb.sleep(10)
+        rocket_cookie = get_cookie_string(sb)
+
+        return amazon_cookie, rocket_cookie
+
+
+def fetch_cookies_e():
+    with SB(headless=True, uc=True) as sb:
+        sb.open(AMAZON_URL)
+        sb.sleep(10)
+        amazon_cookie = get_cookie_string(sb)
+
+        sb.open(ROCKET_URL)
+        sb.sleep(10)
+        rocket_cookie = get_cookie_string(sb)
+
+        return amazon_cookie, rocket_cookie
 
 
 def main():
-    q_selleramp_cookie, q_amazon_cookie = fetch_all_cookies(e, p)
-    e_selleramp_cookie, e_amazon_cookie = fetch_all_cookies(e, p)
+    q_amazon_cookie, q_rocket_cookie = fetch_cookies_q()
+    e_amazon_cookie, e_rocket_cookie = fetch_cookies_e()
 
     data = {
         "qogita": {
-            "selleramp_cookie": q_selleramp_cookie,
             "amazon_cookie": q_amazon_cookie,
+            "rocket_source_cookie": q_rocket_cookie
         },
         "eany": {
-            "selleramp_cookie": e_selleramp_cookie,
             "amazon_cookie": e_amazon_cookie,
+            "rocket_source_cookie": e_rocket_cookie
         }
     }
 
