@@ -27,6 +27,9 @@ jobs:
           pip install seleniumbase
 
       - name: Run scraper
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           python refresh.py
 
