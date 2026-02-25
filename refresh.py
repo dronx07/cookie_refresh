@@ -1,5 +1,3 @@
-2.py
-
 import json
 from seleniumbase import SB
 
