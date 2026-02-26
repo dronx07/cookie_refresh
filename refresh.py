@@ -8,7 +8,7 @@ def get_cookie_string(sb):
     return sb.driver.get_cookie_string()
 
 def fetch_cookies():
-    with SB(headless=False, uc=True) as sb:
+    with SB(headless=True, uc=True) as sb:
         sb.open(SELLER_URL)
         sb.wait_for_ready_state_complete()
         seller_cookie = get_cookie_string(sb)
@@ -26,11 +26,11 @@ def main():
     data = {
         "qogita": {
             "amazon_cookie": q_amazon_cookie,
-            "rocket_source_cookie": q_seller_cookie
+            "seller_cookie": q_seller_cookie
         },
         "eany": {
             "amazon_cookie": e_amazon_cookie,
-            "rocket_source_cookie": e_seller_cookie
+            "seller_cookie": e_seller_cookie
         }
     }
 
