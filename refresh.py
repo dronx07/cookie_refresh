@@ -2,8 +2,8 @@ import json
 from seleniumbase import SB
 
 
-AMAZON_URL = "https://sellercentral-europe.amazon.com/"
-ROCKET_URL = "https://www.rocketsource.io/ean-to-asin"
+SELLER_URL = "https://sellercentral-europe.amazon.com/"
+AMAZON_URL = "https://www.amazon.fr/"
 
 
 def get_cookie_string(sb):
@@ -13,42 +13,42 @@ def get_cookie_string(sb):
 
 def fetch_cookies_q():
     with SB(headless=True, uc=True) as sb:
+        sb.open(SELLER_URL)
+        sb.sleep(10)
+        seller_cookie = get_cookie_string(sb)
+
         sb.open(AMAZON_URL)
         sb.sleep(10)
         amazon_cookie = get_cookie_string(sb)
 
-        sb.open(ROCKET_URL)
-        sb.sleep(10)
-        rocket_cookie = get_cookie_string(sb)
-
-        return amazon_cookie, rocket_cookie
+        return seller_cookie, amazon_cookie
 
 
 def fetch_cookies_e():
     with SB(headless=True, uc=True) as sb:
+        sb.open(SELLER_URL)
+        sb.sleep(10)
+        seller_cookie = get_cookie_string(sb)
+
         sb.open(AMAZON_URL)
         sb.sleep(10)
         amazon_cookie = get_cookie_string(sb)
 
-        sb.open(ROCKET_URL)
-        sb.sleep(10)
-        rocket_cookie = get_cookie_string(sb)
-
-        return amazon_cookie, rocket_cookie
+        return seller_cookie, amazon_cookie
 
 
 def main():
-    q_amazon_cookie, q_rocket_cookie = fetch_cookies_q()
-    e_amazon_cookie, e_rocket_cookie = fetch_cookies_e()
+    q_seller_cookie, q_seller_cookie = fetch_cookies_q()
+    e_seller_cookie, e_amazon_cookie = fetch_cookies_e()
 
     data = {
         "qogita": {
-            "amazon_cookie": q_amazon_cookie,
-            "rocket_source_cookie": q_rocket_cookie
+            "amazon_cookie": q_seller_cookie,
+            "rocket_source_cookie": q_seller_cookie
         },
         "eany": {
-            "amazon_cookie": e_amazon_cookie,
-            "rocket_source_cookie": e_rocket_cookie
+            "amazon_cookie": e_seller_cookie,
+            "rocket_source_cookie": e_amazon_cookie
         }
     }
 
