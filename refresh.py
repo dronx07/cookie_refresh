@@ -8,30 +8,23 @@ def get_cookie_string(sb):
     return sb.driver.get_cookie_string()
 
 def fetch_cookies():
-    with SB(headless=True, uc=True) as sb:
+    with SB(headless=False, uc=True) as sb:
         sb.open(SELLER_URL)
-        sb.wait_for_ready_state_complete()
+        sb.sleep(30)
         seller_cookie = get_cookie_string(sb)
 
         sb.open(AMAZON_URL)
-        sb.wait_for_ready_state_complete()
+        sb.sleep(30)
         amazon_cookie = get_cookie_string(sb)
 
         return seller_cookie, amazon_cookie
 
 def main():
     q_seller_cookie, q_amazon_cookie = fetch_cookies()
-    e_seller_cookie, e_amazon_cookie = fetch_cookies()
 
     data = {
-        "qogita": {
-            "amazon_cookie": q_amazon_cookie,
-            "seller_cookie": q_seller_cookie
-        },
-        "eany": {
-            "amazon_cookie": e_amazon_cookie,
-            "seller_cookie": e_seller_cookie
-        }
+        "amazon": q_amazon_cookie,
+        "seller": q_seller_cookie
     }
 
     with open("cookies.json", "w", encoding="utf-8") as f:
