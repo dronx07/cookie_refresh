@@ -12,8 +12,13 @@ SAS_LOGIN_URL = "https://sas.selleramp.com/site/login"
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
 
+sb_kwargs = {
+            "headless": False,
+            "uc": True,
+        }
+
 def fetch_all_cookies():
-    with SB(headless=True, uc=True) as sb:
+    with SB(**sb_kwargs) as sb:
         sb.open(AMAZON_URL)
         sb.sleep(30)
         amazon_cookie = sb.driver.get_cookie_string()
