@@ -20,7 +20,7 @@ def get_cookie_dict_list(sb):
 
 
 def fetch_amazon_cookies():
-    with SB(headless=False, uc=True) as sb:
+    with SB(headless=False, uc=True, xvfb=True) as sb:
         sb.open(SELLER_URL)
         sb.sleep(30)
         seller_cookie = get_cookie_string(sb)
@@ -33,7 +33,7 @@ def fetch_amazon_cookies():
 
 
 def fetch_sas_cookies(email, password, headless=False):
-    with SB(headless=headless, uc=True) as sb:
+    with SB(headless=headless, uc=True, xvfb=True) as sb:
         sb.open(SAS_LOGIN_URL)
 
         sb.type("input[name='LoginForm[email]']", email)
