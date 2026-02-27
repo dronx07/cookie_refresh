@@ -30,6 +30,12 @@ jobs:
         run: |
           playwright install --with-deps chromium
 
+      - name: Start virtual display
+        run: |
+          sudo apt-get install -y xvfb
+          Xvfb :99 -screen 0 1280x720x24 &
+          export DISPLAY=:99
+
       - name: Run scraper
         env:
           EMAIL: ${{ secrets.EMAIL }}
