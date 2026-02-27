@@ -1,4 +1,316 @@
 {
-    "amazon": "csm-sid=538-3517499-1876889",
-    "seller": "session-id-eu=260-6927991-3302758; cwr_u=4cf35850-82be-4a06-b409-4e908f36632c; cwr_s=eyJzZXNzaW9uSWQiOiI2ZDUyNjRkZS1kYzM4LTRlNDMtOGI1Yy05YThjYjdhNzE3Y2QiLCJyZWNvcmQiOmZhbHNlLCJldmVudENvdW50IjowLCJwYWdlIjp7InBhZ2VJZCI6Ii8iLCJpbnRlcmFjdGlvbiI6MCwicmVmZXJyZXIiOiIiLCJyZWZlcnJlckRvbWFpbiI6IiIsInN0YXJ0IjoxNzcyMTU0MzMzNzYxfX0=; ld=SCUKWPDirect; ph_phc_tGCcl9SINhy3N0zy98fdlWrc1ppQ67KJ8pZMzVZOECH_posthog=%7B%22distinct_id%22%3A%22019c9ca1-2ada-7894-a764-7080fec13c1f%22%2C%22%24sesid%22%3A%5B1772154333927%2C%22019c9ca1-2ae7-7afb-8459-b26c5a51122b%22%2C1772154333927%5D%7D; AMCVS_A7493BC75245ACD20A490D4D%40AdobeOrg=1; s_tbm=true; gpv_page=SC%3AEU%3AWP-Welcome; s_ips=701; s_tp=2260; s_ppv=SC%253AEU%253AWP-Welcome%2C31%2C31%2C701%2C1%2C3; gpv_pn=SC%3AEU%3AWP-Welcome; s_ev15=%5B%5B%27SCUKWPDirect%27%2C%271772154334120%27%5D%5D; ttc=1772154334120; s_cc=true; ubid-acbuk=261-1776141-0487641; AMCV_A7493BC75245ACD20A490D4D%40AdobeOrg=1585540135%7CMCIDTS%7C20512%7CMCMID%7C57144219122358204430368774416392401067%7CMCAAMLH-1772759133%7C9%7CMCAAMB-1772759133%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1772161534s%7CNONE%7CMCAID%7CNONE%7CMCSYNCSOP%7C411-20519%7CvVersion%7C4.4.0"
+    "amazon": "csm-sid=800-6979923-0842143",
+    "seller": "csm-sid=800-6979923-0842143; session-id-eu=262-1859807-8331761; demdex=50630340200941007974491157619706833829; cwr_u=3400ecb5-a589-46b7-8ccb-91ffa969afc5; AMCVS_A7493BC75245ACD20A490D4D%40AdobeOrg=1; ph_phc_tGCcl9SINhy3N0zy98fdlWrc1ppQ67KJ8pZMzVZOECH_posthog=%7B%22distinct_id%22%3A%22019c9d71-5667-78f4-8e14-3ee7cede94f6%22%2C%22%24sesid%22%3A%5B1772167976563%2C%22019c9d71-5673-7a90-a3ec-b8a32e33f1c7%22%2C1772167976563%5D%7D; ld=ASUKWPDirect; s_tbm=true; gpv_page=SC%3AEU%3AWP-Welcome; s_ips=720; s_tp=2260; s_ppv=SC%253AEU%253AWP-Welcome%2C32%2C32%2C720%2C1%2C3; gpv_pn=SC%3AEU%3AWP-Welcome; s_ev15=%5B%5B%27ASUKWPDirect%27%2C%271772167976719%27%5D%5D; ttc=1772167976719; s_cc=true; ubid-acbuk=261-1596669-1171609; dpm=50630340200941007974491157619706833829; AMCV_A7493BC75245ACD20A490D4D%40AdobeOrg=1585540135%7CMCIDTS%7C20512%7CMCMID%7C54907737046176438533756964184052277717%7CMCAAMLH-1772772776%7C7%7CMCAAMB-1772772776%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1772175176s%7CNONE%7CMCAID%7CNONE%7CMCSYNCSOP%7C411-20519%7CvVersion%7C4.4.0; cwr_s=eyJzZXNzaW9uSWQiOiIwNDNhYmQzYS1lNDIyLTQ4ZDMtYWFmZC02OTZmYTBlMTQxZWYiLCJyZWNvcmQiOnRydWUsImV2ZW50Q291bnQiOjI2LCJwYWdlIjp7InBhZ2VJZCI6Ii8iLCJpbnRlcmFjdGlvbiI6MCwicmVmZXJyZXIiOiIiLCJyZWZlcnJlckRvbWFpbiI6IiIsInN0YXJ0IjoxNzcyMTY3OTc2NDcyfX0=; session-token=dcUD9IEGTMUvI8jS3hfDIi76IF8ZrJU+zdl+Dnw8zOnSJtj4lo1UxsB3Cr6jslwemsX/Hx70cT018Jz6x3oach/0IeWYLRDuLmRg0feN7zdjW8L+WYjfwk8yCMMlRbv88xdb7rE4S0zElSbUwlg5hMGCUG7DFDHXFJB2K/FDCBVG/rhIHevvTID+xs6PeSM9MWfUb+9uaIldmcoaLfwkXmpZ5Fx74EkW/4UAfkmRyG4=",
+    "sas": [
+        {
+            "name": "csm-sid",
+            "value": "800-6979923-0842143",
+            "domain": "www.amazon.fr",
+            "path": "/",
+            "expires": 1774534715,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "session-id-eu",
+            "value": "262-1859807-8331761",
+            "domain": ".amazon.com",
+            "path": "/",
+            "expires": 1803703976.193971,
+            "httpOnly": false,
+            "secure": true,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "demdex",
+            "value": "50630340200941007974491157619706833829",
+            "domain": ".demdex.net",
+            "path": "/",
+            "expires": 1787719976.979045,
+            "httpOnly": false,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "cwr_u",
+            "value": "3400ecb5-a589-46b7-8ccb-91ffa969afc5",
+            "domain": ".sellercentral-europe.amazon.com",
+            "path": "/",
+            "expires": 1774759976,
+            "httpOnly": false,
+            "secure": true,
+            "sameSite": "Strict"
+        },
+        {
+            "name": "AMCVS_A7493BC75245ACD20A490D4D%40AdobeOrg",
+            "value": "1",
+            "domain": ".amazon.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "ld",
+            "value": "ASUKWPDirect",
+            "domain": "sellercentral-europe.amazon.com",
+            "path": "/",
+            "expires": 1773463976,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "s_tbm",
+            "value": "true",
+            "domain": ".sellercentral-europe.amazon.com",
+            "path": "/",
+            "expires": 1772169776,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "gpv_page",
+            "value": "SC%3AEU%3AWP-Welcome",
+            "domain": ".sellercentral-europe.amazon.com",
+            "path": "/",
+            "expires": 1772169776,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "s_ips",
+            "value": "720",
+            "domain": ".sellercentral-europe.amazon.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "s_tp",
+            "value": "2260",
+            "domain": ".sellercentral-europe.amazon.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "s_ppv",
+            "value": "SC%253AEU%253AWP-Welcome%2C32%2C32%2C720%2C1%2C3",
+            "domain": ".sellercentral-europe.amazon.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "gpv_pn",
+            "value": "SC%3AEU%3AWP-Welcome",
+            "domain": ".sellercentral-europe.amazon.com",
+            "path": "/",
+            "expires": 1772169776,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "s_ev15",
+            "value": "%5B%5B%27ASUKWPDirect%27%2C%271772167976719%27%5D%5D",
+            "domain": ".sellercentral-europe.amazon.com",
+            "path": "/",
+            "expires": 1806727976.719487,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "ttc",
+            "value": "1772167976719",
+            "domain": ".sellercentral-europe.amazon.com",
+            "path": "/",
+            "expires": 1774759976,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "s_cc",
+            "value": "true",
+            "domain": ".sellercentral-europe.amazon.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "ubid-acbuk",
+            "value": "261-1596669-1171609",
+            "domain": ".amazon.com",
+            "path": "/",
+            "expires": 1803703976.815438,
+            "httpOnly": false,
+            "secure": true,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "dpm",
+            "value": "50630340200941007974491157619706833829",
+            "domain": ".dpm.demdex.net",
+            "path": "/",
+            "expires": 1787719976.979116,
+            "httpOnly": false,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "AMCV_A7493BC75245ACD20A490D4D%40AdobeOrg",
+            "value": "1585540135%7CMCIDTS%7C20512%7CMCMID%7C54907737046176438533756964184052277717%7CMCAAMLH-1772772776%7C7%7CMCAAMB-1772772776%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1772175176s%7CNONE%7CMCAID%7CNONE%7CMCSYNCSOP%7C411-20519%7CvVersion%7C4.4.0",
+            "domain": ".amazon.com",
+            "path": "/",
+            "expires": 1806727976.980597,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "session-token",
+            "value": "dcUD9IEGTMUvI8jS3hfDIi76IF8ZrJU+zdl+Dnw8zOnSJtj4lo1UxsB3Cr6jslwemsX/Hx70cT018Jz6x3oach/0IeWYLRDuLmRg0feN7zdjW8L+WYjfwk8yCMMlRbv88xdb7rE4S0zElSbUwlg5hMGCUG7DFDHXFJB2K/FDCBVG/rhIHevvTID+xs6PeSM9MWfUb+9uaIldmcoaLfwkXmpZ5Fx74EkW/4UAfkmRyG4=",
+            "domain": ".amazon.com",
+            "path": "/",
+            "expires": 1803703981.960524,
+            "httpOnly": false,
+            "secure": true,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "wukn",
+            "value": "8ec53c981763f076fca0b1f089108daf6c497836e10dcd98fc812960e7b54d87a%3A2%3A%7Bi%3A0%3Bs%3A4%3A%22wukn%22%3Bi%3A1%3Bs%3A36%3A%22aca32671-d700-4676-969d-3f73ad455f5d%22%3B%7D",
+            "domain": "sas.selleramp.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "ph_phc_tGCcl9SINhy3N0zy98fdlWrc1ppQ67KJ8pZMzVZOECH_posthog",
+            "value": "%7B%22distinct_id%22%3A%22019c9d71-5667-78f4-8e14-3ee7cede94f6%22%2C%22%24sesid%22%3A%5B1772168007382%2C%22019c9d71-5673-7a90-a3ec-b8a32e33f1c7%22%2C1772167976563%5D%7D",
+            "domain": ".amazon.com",
+            "path": "/",
+            "expires": 1803704007,
+            "httpOnly": false,
+            "secure": true,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "cwr_s",
+            "value": "eyJzZXNzaW9uSWQiOiIwNDNhYmQzYS1lNDIyLTQ4ZDMtYWFmZC02OTZmYTBlMTQxZWYiLCJyZWNvcmQiOnRydWUsImV2ZW50Q291bnQiOjI3LCJwYWdlIjp7InBhZ2VJZCI6Ii8iLCJpbnRlcmFjdGlvbiI6MCwicmVmZXJyZXIiOiIiLCJyZWZlcnJlckRvbWFpbiI6IiIsInN0YXJ0IjoxNzcyMTY3OTc2NDcyfX0=",
+            "domain": ".sellercentral-europe.amazon.com",
+            "path": "/",
+            "expires": 1772169807,
+            "httpOnly": false,
+            "secure": true,
+            "sameSite": "Strict"
+        },
+        {
+            "name": "_ga",
+            "value": "GA1.1.1090103793.1772168008",
+            "domain": ".selleramp.com",
+            "path": "/",
+            "expires": 1806728009.352892,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "_cfuvid",
+            "value": "wBfFrEwwhcvdzJC1SpkuNmqp_lSinbR6cB2dBz.f_OE-1772168007.6302042-1.0.1.1-Mi5znCjdeHKk4yqjfEnRQl83SBy9IhZOPP8XCI2lpaw",
+            "domain": ".challenges.cloudflare.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "_iidt",
+            "value": "g8lE03FKtqIekr9RjOxrtS6D7GQbvZGgFSrZfGWnmJU5+r53h4gW1wjLhY38Pe0OyM/Ma7kbDJ/5Xw==",
+            "domain": ".selleramp.com",
+            "path": "/",
+            "expires": 1803704008.406297,
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "_vid_t",
+            "value": "M4TK4VI05bmwB+ESwbnvWAgmSJTYEZfr+eoGdTFSXkZvfJTytRWqh79K2b2bvrfl0YhR5RGD093XfQ==",
+            "domain": ".selleramp.com",
+            "path": "/",
+            "expires": 1803704008,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "_fp",
+            "value": "ioyJCSX0Y2FIipoCW929",
+            "domain": "sas.selleramp.com",
+            "path": "/",
+            "expires": 1772254408.410323,
+            "httpOnly": false,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "advanced-sasend",
+            "value": "md6joh8h0t02r89bf9t24opb1n",
+            "domain": "sas.selleramp.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "_identity-sasend",
+            "value": "8d86f322b8e60700210781dd769b8a5f4afd1f2e25877f3ed6fe411209316cd6a%3A2%3A%7Bi%3A0%3Bs%3A16%3A%22_identity-sasend%22%3Bi%3A1%3Bs%3A51%3A%22%5B107774%2C%226N1hURAq1cPngT3KRLHb6CUqV9Jud3ew%22%2C2592000%5D%22%3B%7D",
+            "domain": "sas.selleramp.com",
+            "path": "/",
+            "expires": 1774760009.252388,
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "_csrf-sasend",
+            "value": "5b632a714964a94083a8a06620ddccff1380b89ad499dfc4bb50d5e580c409e7a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_csrf-sasend%22%3Bi%3A1%3Bs%3A32%3A%22IyX3nqfd40LyyYnSsyJzbVkjcrf4XcXv%22%3B%7D",
+            "domain": "sas.selleramp.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "_ga_W98N3EP6JE",
+            "value": "GS2.1.s1772168007$o1$g1$t1772168009$j58$l0$h0",
+            "domain": ".selleramp.com",
+            "path": "/",
+            "expires": 1806728009.356815,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        }
+    ]
 }
