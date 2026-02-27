@@ -1,30 +1,43 @@
 import json
+import os
+from dotenv import load_dotenv
 from seleniumbase import SB
+
+load_dotenv()
 
 SELLER_URL = "https://sellercentral-europe.amazon.com/"
 AMAZON_URL = "https://www.amazon.fr/"
+SAS_LOGIN_URL = "https://sas.selleramp.com/site/login"
 
-def get_cookie_string(sb):
-    return sb.driver.get_cookie_string()
+EMAIL = os.getenv("EMAIL")
+PASSWORD = os.getenv("PASSWORD")
 
-def fetch_cookies():
-    with SB(headless=False, uc=True) as sb:
-        sb.open(SELLER_URL)
-        sb.sleep(30)
-        seller_cookie = get_cookie_string(sb)
-
+def fetch_all_cookies():
+    with SB(headless=False, xvfb=True) as sb:
         sb.open(AMAZON_URL)
-        sb.sleep(30)
-        amazon_cookie = get_cookie_string(sb)
+        sb.sleep(10)
+        amazon_cookie = sb.driver.get_cookie_string()
 
-        return seller_cookie, amazon_cookie
+        sb.open(SELLER_URL)
+        sb.sleep(10)
+        seller_cookie = sb.driver.get_cookie_string()
+
+        sb.open(SAS_LOGIN_URL)
+        sb.type("input[name='LoginForm[email]']", EMAIL)
+        sb.type("input[name='LoginForm[password]']", PASSWORD)
+        sb.click("button[type='submit']")
+        sb.sleep(15)
+        sas_cookies = sb.driver.get_cookies()
+
+        return amazon_cookie, seller_cookie, sas_cookies
 
 def main():
-    q_seller_cookie, q_amazon_cookie = fetch_cookies()
+    amazon_cookie, seller_cookie, sas_cookies = fetch_all_cookies()
 
     data = {
-        "amazon": q_amazon_cookie,
-        "seller": q_seller_cookie
+        "amazon": amazon_cookie,
+        "seller": seller_cookie,
+        "sas": sas_cookies
     }
 
     with open("cookies.json", "w", encoding="utf-8") as f:
