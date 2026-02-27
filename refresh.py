@@ -13,8 +13,7 @@ SAS_URL = "https://sas.selleramp.com/site/login"
 async def fetch_site_cookies(browser, url, wait_time=30):
     context = await browser.new_context()
     page = await context.new_page()
-    await page.goto(url)
-    print(f"Please login manually on {url}...")
+    await page.goto(url, wait_until="load")
     await asyncio.sleep(wait_time)
     cookies = await context.cookies()
     cookie_string = "; ".join([f"{c['name']}={c['value']}" for c in cookies])
@@ -40,9 +39,8 @@ class SASLogin:
         return cookies
 
 async def main():
-    HEADLESS = False
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=HEADLESS, args=["--disable-blink-features=AutomationControlled"])
+        browser = await p.chromium.launch(headless=False, args=["--disable-blink-features=AutomationControlled"])
         amazon_cookie = await fetch_site_cookies(browser, AMAZON_URL, 30)
         seller_cookie = await fetch_site_cookies(browser, SELLER_URL, 30)
         sas = SASLogin(email=os.getenv("EMAIL"), password=os.getenv("PASSWORD"))
