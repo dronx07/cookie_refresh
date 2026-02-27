@@ -15,7 +15,7 @@ async def fetch_cookies(page, url, wait_time=30):
     """Open page, wait for manual login, return cookies as string."""
     await page.goto(url)
     print(f"Please login manually on {url}...")
-    await asyncio.sleep(wait_time)  # wait for manual login
+    await asyncio.sleep(wait_time)
     cookies = await page.context.cookies()
     cookie_string = "; ".join([f"{c['name']}={c['value']}" for c in cookies])
     return cookie_string
@@ -42,7 +42,7 @@ class SASLogin:
 async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(
-            headless=False, args=["--disable-blink-features=AutomationControlled"]
+            headless=True, args=["--disable-blink-features=AutomationControlled"]
         )
         context = await browser.new_context()
         page = await context.new_page()
