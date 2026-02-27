@@ -12,36 +12,27 @@ SAS_LOGIN_URL = "https://sas.selleramp.com/site/login"
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
 
-def fetch_amazon_cookie():
-    with SB(headless=False, xvfb=True, uc=True) as sb:
+def fetch_all_cookies():
+    with SB(headless=False, uc=True, xvfb=True) as sb:
         sb.open(AMAZON_URL)
         sb.sleep(30)
         amazon_cookie = sb.driver.get_cookie_string()
-        return amazon_cookie
 
-def fetch_seller_cookie():
-    with SB(headless=False, xvfb=True, uc=True) as sb:
         sb.open(SELLER_URL)
         sb.sleep(30)
         seller_cookie = sb.driver.get_cookie_string()
-        return seller_cookie
 
-def fetch_sas_cookie():
-    with SB(headless=False, xvfb=True, uc=True) as sb:
         sb.open(SAS_LOGIN_URL)
-        sb.sleep(30)
         sb.type("input[name='LoginForm[email]']", EMAIL)
         sb.type("input[name='LoginForm[password]']", PASSWORD)
         sb.click("button[type='submit']")
         sb.sleep(30)
-        sas_cookie = sb.driver.get_cookies()
+        sas_cookies = sb.driver.get_cookies()
 
-        return sas_cookie
+        return amazon_cookie, seller_cookie, sas_cookies
 
 def main():
-    amazon_cookie = fetch_amazon_cookie()
-    seller_cookie = fetch_seller_cookie()
-    sas_cookies = fetch_sas_cookie()
+    amazon_cookie, seller_cookie, sas_cookies = fetch_all_cookies()
 
     data = {
         "amazon": amazon_cookie,
