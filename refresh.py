@@ -40,7 +40,7 @@ class SASLogin:
         return cookies
 
 async def main():
-    HEADLESS = os.getenv("CI", "false").lower() == "true"
+    HEADLESS = False
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=HEADLESS, args=["--disable-blink-features=AutomationControlled"])
         amazon_cookie = await fetch_site_cookies(browser, AMAZON_URL, 30)
