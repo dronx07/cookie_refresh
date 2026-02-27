@@ -13,21 +13,21 @@ EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
 
 def fetch_amazon_cookie():
-    with SB(headless=False, xvfb=True) as sb:
+    with SB(headless=False, xvfb=True, uc=True) as sb:
         sb.open(AMAZON_URL)
         sb.sleep(30)
         amazon_cookie = sb.driver.get_cookie_string()
         return amazon_cookie
 
 def fetch_seller_cookie():
-    with SB(headless=False, xvfb=True) as sb:
+    with SB(headless=False, xvfb=True, uc=True) as sb:
         sb.open(SELLER_URL)
         sb.sleep(30)
         seller_cookie = sb.driver.get_cookie_string()
         return seller_cookie
 
 def fetch_sas_cookie():
-    with SB(headless=False, xvfb=True) as sb:
+    with SB(headless=False, xvfb=True, uc=True) as sb:
         sb.open(SAS_LOGIN_URL)
         sb.sleep(30)
         sb.type("input[name='LoginForm[email]']", EMAIL)
