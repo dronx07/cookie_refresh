@@ -14,7 +14,7 @@ PASSWORD = os.getenv("PASSWORD")
 
 
 def fetch_all_cookies():
-    with SB(headless=False) as sb:
+    with SB(headless=False, uc=True) as sb:
         sb.open(AMAZON_URL)
         sb.sleep(30)
         amazon_cookie = sb.driver.get_cookie_string()
