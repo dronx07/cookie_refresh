@@ -24,23 +24,24 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install playwright dotenv
+          pip install playwright python-dotenv
 
       - name: Install Playwright browsers
         run: |
           playwright install --with-deps chromium
 
-      - name: Start virtual display
-        run: |
-          sudo apt-get install -y xvfb
-          Xvfb :99 -screen 0 1280x720x24 &
-          export DISPLAY=:99
+      - name: Install Xvfb
+        run: sudo apt-get install -y xvfb
 
-      - name: Run scraper
+      - name: Run scraper with virtual display
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
+          DISPLAY: :99
         run: |
+          # Start Xvfb in the background for this step
+          Xvfb :99 -screen 0 1280x720x24 &
+          sleep 2
           python refresh.py
 
       - name: Commit updated cookies.json
