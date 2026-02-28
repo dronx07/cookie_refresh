@@ -51,6 +51,7 @@ def fetch_sas_cookies(p):
     page.fill("input[name='LoginForm[password]']", PASSWORD)
     page.click("button[type='submit']")
     page.wait_for_load_state("load")
+    time.sleep(30)
     cookies = context.cookies()
     context.close()
     browser.close()
