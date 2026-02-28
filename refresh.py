@@ -11,6 +11,9 @@ SAS_LOGIN_URL = "https://sas.selleramp.com/site/login"
 
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
+SERVER = os.getenv("SERVER")
+USR = os.getenv("USR")
+PWD = os.getenv("PASSWORD")
 
 
 def fetch_amazon_cookies(p):
@@ -31,9 +34,9 @@ def fetch_amazon_cookies(p):
 
 def fetch_seller_cookies(p):
     browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"], proxy={
-            "server": "dc.oxylabs.io:8000",
-            "username": "Maze54_hytBx",
-            "password": "y8OP0IwvQ8e7H+"
+            "server": SERVER,
+            "username": USR,
+            "password": PWD
         })
     context = browser.new_context()
     page = context.new_page()
