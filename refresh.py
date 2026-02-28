@@ -2,6 +2,7 @@ import json
 import os
 from dotenv import load_dotenv
 from playwright.sync_api import sync_playwright
+import time
 
 load_dotenv()
 
@@ -19,6 +20,7 @@ def fetch_amazon_cookies(p):
     context = browser.new_context()
     page = context.new_page()
     page.goto(AMAZON_URL, wait_until="load")
+    time.sleep(30)
     cookies = context.cookies()
     cookie_string = "; ".join(f"{c['name']}={c['value']}" for c in cookies)
     context.close()
@@ -31,6 +33,7 @@ def fetch_seller_cookies(p):
     context = browser.new_context()
     page = context.new_page()
     page.goto(SELLER_URL, wait_until="load")
+    time.sleep(30)
     cookies = context.cookies()
     cookie_string = "; ".join(f"{c['name']}={c['value']}" for c in cookies)
     context.close()
@@ -43,6 +46,7 @@ def fetch_sas_cookies(p):
     context = browser.new_context()
     page = context.new_page()
     page.goto(SAS_LOGIN_URL, wait_until="load")
+    time.sleep(30)
     page.fill("input[name='LoginForm[email]']", EMAIL)
     page.fill("input[name='LoginForm[password]']", PASSWORD)
     page.click("button[type='submit']")
