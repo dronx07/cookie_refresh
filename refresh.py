@@ -14,7 +14,7 @@ PASSWORD = os.getenv("PASSWORD")
 
 
 def fetch_amazon_cookies(p):
-    browser = p.chromium.launch(headless=True)
+    browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"])
     context = browser.new_context()
     page = context.new_page()
     page.goto(AMAZON_URL, wait_until="load")
@@ -26,7 +26,7 @@ def fetch_amazon_cookies(p):
 
 
 def fetch_seller_cookies(p):
-    browser = p.chromium.launch(headless=True)
+    browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"])
     context = browser.new_context()
     page = context.new_page()
     page.goto(SELLER_URL, wait_until="load")
@@ -38,7 +38,7 @@ def fetch_seller_cookies(p):
 
 
 def fetch_sas_cookies(p):
-    browser = p.chromium.launch(headless=True)
+    browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"])
     context = browser.new_context()
     page = context.new_page()
     page.goto(SAS_LOGIN_URL, wait_until="load")
