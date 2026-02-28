@@ -14,7 +14,11 @@ PASSWORD = os.getenv("PASSWORD")
 
 
 def fetch_amazon_cookies(p):
-    browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"])
+    browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"], proxy={
+            "server": "http://myproxy.com:3128",
+            "username": "usr",
+            "password": "pwd"
+        })
     context = browser.new_context()
     page = context.new_page()
     page.goto(AMAZON_URL, wait_until="load")
@@ -26,7 +30,11 @@ def fetch_amazon_cookies(p):
 
 
 def fetch_seller_cookies(p):
-    browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"])
+    browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"], proxy={
+            "server": "http://myproxy.com:3128",
+            "username": "usr",
+            "password": "pwd"
+        })
     context = browser.new_context()
     page = context.new_page()
     page.goto(SELLER_URL, wait_until="load")
@@ -38,7 +46,11 @@ def fetch_seller_cookies(p):
 
 
 def fetch_sas_cookies(p):
-    browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"])
+    browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"], proxy={
+            "server": "http://dc.oxylabs.io:8000",
+            "username": "Maze54_hytBx",
+            "password": "y8OP0IwvQ8e7H+"
+        })
     context = browser.new_context()
     page = context.new_page()
     page.goto(SAS_LOGIN_URL, wait_until="load")
