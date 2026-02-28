@@ -31,9 +31,9 @@ def fetch_amazon_cookies(p):
 
 def fetch_seller_cookies(p):
     browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"], proxy={
-            "server": "http://myproxy.com:3128",
-            "username": "usr",
-            "password": "pwd"
+            "server": "dc.oxylabs.io:8000",
+            "username": "Maze54_hytBx",
+            "password": "y8OP0IwvQ8e7H+"
         })
     context = browser.new_context()
     page = context.new_page()
