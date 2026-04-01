@@ -90,36 +90,8 @@ def main():
     with sync_playwright() as playwright:
 
         print("Generating cookies set 1...")
-        cookie_sets["set1"] = {
-            "amazon": fetch_amazon_cookies(playwright, "DVD"),
-            "seller": fetch_seller_cookies(playwright)
-        }
-
-        time.sleep(10)
-
-        print("Generating cookies set 2...")
-        cookie_sets["set2"] = {
-            "amazon": fetch_amazon_cookies(playwright, "Jouets"),
-            "seller": fetch_seller_cookies(playwright)
-        }
-
-        time.sleep(10)
-
-        print("Generating cookies set 3...")
-        cookie_sets["set3"] = {
-            "amazon": fetch_amazon_cookies(playwright, "Jeux"),
-            "seller": fetch_seller_cookies(playwright)
-        }
-
-        time.sleep(10)
-
-        print("Generating cookies set 4...")
-        cookie_sets["set4"] = {
-            "amazon": fetch_amazon_cookies(playwright, "Livres"),
-            "seller": fetch_seller_cookies(playwright)
-        }
-
-        time.sleep(10)
+        cookie_sets["amazon"] = fetch_amazon_cookies(playwright, "Jeout")
+        cookie_sets["seller"] = fetch_seller_cookies(playwright)
 
         print("Generating SAS cookie...")
         cookie_sets["sas"] = fetch_sas_cookies(playwright)
