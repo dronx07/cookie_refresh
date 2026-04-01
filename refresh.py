@@ -65,10 +65,10 @@ def fetch_seller_cookies(playwright):
 
 def fetch_sas_cookies(playwright):
     browser = launch_browser(playwright)
-    context = browser.new_context(proxy=proxy)
+    context = browser.new_context()
     page = context.new_page()
 
-    page.goto(SAS_LOGIN_URL, wait_until="load")
+    page.goto(SAS_LOGIN_URL, wait_until="load", timeout=30000)
 
     page.fill("input[name='LoginForm[email]']", EMAIL)
     page.fill("input[name='LoginForm[password]']", PASSWORD)
