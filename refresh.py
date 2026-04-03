@@ -26,24 +26,29 @@ def launch_browser(playwright):
     )
 
 
-def fetch_amazon_cookies(playwright, q):
-    browser = launch_browser(playwright)
-    context = browser.new_context(proxy=proxy)
-    page = context.new_page()
+def fetch_amazon_cookies(playwright, q, max_retries=5):
+    for attempt in range(max_retries):
+        browser = launch_browser(playwright)
+        context = browser.new_context(proxy=proxy)
+        page = context.new_page()
 
-    page.goto(AMAZON_URL, wait_until="load", timeout=30000)
+        page.goto(AMAZON_URL, wait_until="load", timeout=30000)
+        time.sleep(10)
+        page.goto(f"https://www.amazon.fr/s?k={q}", wait_until="load", timeout=60000)
+        time.sleep(10)
 
-    time.sleep(10)
+        cookies = context.cookies()
+        browser.close()
 
-    page.goto(f"https://www.amazon.fr/s?k={q}", wait_until="load", timeout=60000)
-
-    time.sleep(10)
-
-    cookies = context.cookies()
-    browser.close()
-
-    cookie_str = "; ".join(f"{c['name']}={c['value']}" for c in cookies)
-
+        cookie_str = "; ".join(f"{c['name']}={c['value']}" for c in cookies)
+        
+        has_waf_token = any(c['name'] == 'aws-waf-token' for c in cookies)
+        
+        if has_waf_token:
+            return cookie_str
+        
+        time.sleep(5)
+    
     return cookie_str
 
 
@@ -53,7 +58,6 @@ def fetch_seller_cookies(playwright):
     page = context.new_page()
 
     page.goto(SELLER_URL, wait_until="load", timeout=60000)
-
     time.sleep(10)
 
     cookies = context.cookies()
@@ -70,13 +74,10 @@ def fetch_sas_cookies(playwright):
     page = context.new_page()
 
     page.goto(SAS_LOGIN_URL, wait_until="load", timeout=60000)
-
     page.fill("input[name='LoginForm[email]']", EMAIL)
     page.fill("input[name='LoginForm[password]']", PASSWORD)
     page.click("button[type='submit']")
-
     page.wait_for_load_state("load")
-
     time.sleep(10)
 
     cookies = context.cookies()
@@ -89,12 +90,8 @@ def main():
     cookie_sets = {}
 
     with sync_playwright() as playwright:
-
-        print("Generating cookies set 1...")
         cookie_sets["amazon"] = fetch_amazon_cookies(playwright, "Jeout")
         cookie_sets["seller"] = fetch_seller_cookies(playwright)
-
-        print("Generating SAS cookie...")
         cookie_sets["sas"] = fetch_sas_cookies(playwright)
 
     with open("cookies.json", "w", encoding="utf-8") as f:
