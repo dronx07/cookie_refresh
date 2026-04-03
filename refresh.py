@@ -35,7 +35,7 @@ def fetch_amazon_cookies(playwright, q):
 
     time.sleep(10)
 
-    page.goto(f"https://www.amazon.fr/s?k={q}", wait_until="load", timeout=30000)
+    page.goto(f"https://www.amazon.fr/s?k={q}", wait_until="load", timeout=60000)
 
     time.sleep(10)
 
@@ -52,8 +52,9 @@ def fetch_seller_cookies(playwright):
     context = browser.new_context(proxy=proxy)
     page = context.new_page()
 
-    page.goto(SELLER_URL, wait_until="load")
-    page.wait_for_timeout(10000)
+    page.goto(SELLER_URL, wait_until="load", timeout=60000)
+
+    time.sleep(10)
 
     cookies = context.cookies()
     browser.close()
@@ -68,7 +69,7 @@ def fetch_sas_cookies(playwright):
     context = browser.new_context()
     page = context.new_page()
 
-    page.goto(SAS_LOGIN_URL, wait_until="load", timeout=30000)
+    page.goto(SAS_LOGIN_URL, wait_until="load", timeout=60000)
 
     page.fill("input[name='LoginForm[email]']", EMAIL)
     page.fill("input[name='LoginForm[password]']", PASSWORD)
@@ -76,7 +77,7 @@ def fetch_sas_cookies(playwright):
 
     page.wait_for_load_state("load")
 
-    page.wait_for_timeout(10000)
+    time.sleep(10)
 
     cookies = context.cookies()
     browser.close()
